@@ -1,0 +1,37 @@
+#!/bin/bash
+
+cd /Users/severianovillarruel/eppicenter/shed/cromwell/cromwell-executions/wf/7f6b4a51-a9cd-4386-b5e9-bd9712d6d7cf/call-hello/execution
+tmpDir=$(mkdir -p "/Users/severianovillarruel/eppicenter/shed/cromwell/cromwell-executions/wf/7f6b4a51-a9cd-4386-b5e9-bd9712d6d7cf/call-hello/tmp.c82e19dc" && echo "/Users/severianovillarruel/eppicenter/shed/cromwell/cromwell-executions/wf/7f6b4a51-a9cd-4386-b5e9-bd9712d6d7cf/call-hello/tmp.c82e19dc")
+
+export _JAVA_OPTIONS=-Djava.io.tmpdir="$tmpDir"
+export TMPDIR="$tmpDir"
+export HOME="$HOME"
+(
+cd /Users/severianovillarruel/eppicenter/shed/cromwell/cromwell-executions/wf/7f6b4a51-a9cd-4386-b5e9-bd9712d6d7cf/call-hello/execution
+
+)
+out7f6b4a51="${tmpDir}/out.$$" err7f6b4a51="${tmpDir}/err.$$"
+mkfifo "$out7f6b4a51" "$err7f6b4a51"
+trap 'rm "$out7f6b4a51" "$err7f6b4a51"' EXIT
+touch '/Users/severianovillarruel/eppicenter/shed/cromwell/cromwell-executions/wf/7f6b4a51-a9cd-4386-b5e9-bd9712d6d7cf/call-hello/execution/stdout' '/Users/severianovillarruel/eppicenter/shed/cromwell/cromwell-executions/wf/7f6b4a51-a9cd-4386-b5e9-bd9712d6d7cf/call-hello/execution/stderr'
+tee '/Users/severianovillarruel/eppicenter/shed/cromwell/cromwell-executions/wf/7f6b4a51-a9cd-4386-b5e9-bd9712d6d7cf/call-hello/execution/stdout' < "$out7f6b4a51" &
+tee '/Users/severianovillarruel/eppicenter/shed/cromwell/cromwell-executions/wf/7f6b4a51-a9cd-4386-b5e9-bd9712d6d7cf/call-hello/execution/stderr' < "$err7f6b4a51" >&2 &
+(
+cd /Users/severianovillarruel/eppicenter/shed/cromwell/cromwell-executions/wf/7f6b4a51-a9cd-4386-b5e9-bd9712d6d7cf/call-hello/execution
+
+
+echo hello_world > file.txt
+)  > "$out7f6b4a51" 2> "$err7f6b4a51"
+echo $? > /Users/severianovillarruel/eppicenter/shed/cromwell/cromwell-executions/wf/7f6b4a51-a9cd-4386-b5e9-bd9712d6d7cf/call-hello/execution/rc.tmp
+(
+# add a .file in every empty directory to facilitate directory delocalization on the cloud
+cd /Users/severianovillarruel/eppicenter/shed/cromwell/cromwell-executions/wf/7f6b4a51-a9cd-4386-b5e9-bd9712d6d7cf/call-hello/execution
+find . -type d -exec sh -c '[ -z "$(ls -A '"'"'{}'"'"')" ] && touch '"'"'{}'"'"'/.file' \;
+)
+(
+cd /Users/severianovillarruel/eppicenter/shed/cromwell/cromwell-executions/wf/7f6b4a51-a9cd-4386-b5e9-bd9712d6d7cf/call-hello/execution
+sync
+
+
+)
+mv /Users/severianovillarruel/eppicenter/shed/cromwell/cromwell-executions/wf/7f6b4a51-a9cd-4386-b5e9-bd9712d6d7cf/call-hello/execution/rc.tmp /Users/severianovillarruel/eppicenter/shed/cromwell/cromwell-executions/wf/7f6b4a51-a9cd-4386-b5e9-bd9712d6d7cf/call-hello/execution/rc

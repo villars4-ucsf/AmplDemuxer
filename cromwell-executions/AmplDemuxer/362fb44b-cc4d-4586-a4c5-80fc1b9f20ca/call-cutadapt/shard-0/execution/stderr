@@ -1,0 +1,4 @@
+Run "cutadapt --help" to see command-line options.
+See https://cutadapt.readthedocs.io/ for full documentation.
+
+cutadapt: error: You used an option that enabled paired-end mode (such as -p, -A, -G, -B, -U), but then you also need to provide two input files (you provided one) or use --interleaved.

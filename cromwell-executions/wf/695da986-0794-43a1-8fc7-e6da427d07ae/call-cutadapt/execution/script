@@ -1,0 +1,59 @@
+#!/bin/bash
+
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/695da986-0794-43a1-8fc7-e6da427d07ae/call-cutadapt/execution
+tmpDir=$(mkdir -p "/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/695da986-0794-43a1-8fc7-e6da427d07ae/call-cutadapt/tmp.19554501" && echo "/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/695da986-0794-43a1-8fc7-e6da427d07ae/call-cutadapt/tmp.19554501")
+
+export _JAVA_OPTIONS=-Djava.io.tmpdir="$tmpDir"
+export TMPDIR="$tmpDir"
+export HOME="$HOME"
+(
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/695da986-0794-43a1-8fc7-e6da427d07ae/call-cutadapt/execution
+
+)
+out695da986="${tmpDir}/out.$$" err695da986="${tmpDir}/err.$$"
+mkfifo "$out695da986" "$err695da986"
+trap 'rm "$out695da986" "$err695da986"' EXIT
+touch '/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/695da986-0794-43a1-8fc7-e6da427d07ae/call-cutadapt/execution/stdout' '/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/695da986-0794-43a1-8fc7-e6da427d07ae/call-cutadapt/execution/stderr'
+tee '/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/695da986-0794-43a1-8fc7-e6da427d07ae/call-cutadapt/execution/stdout' < "$out695da986" &
+tee '/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/695da986-0794-43a1-8fc7-e6da427d07ae/call-cutadapt/execution/stderr' < "$err695da986" >&2 &
+(
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/695da986-0794-43a1-8fc7-e6da427d07ae/call-cutadapt/execution
+
+
+cutadapt \ 
+  --action=retain \
+  --discard-untrimmed \
+  -g /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/695da986-0794-43a1-8fc7-e6da427d07ae/call-cutadapt/inputs/-338175371/v3_fwd_primers_1B_anchored.fasta \
+  -G /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/695da986-0794-43a1-8fc7-e6da427d07ae/call-cutadapt/inputs/-338175371/v3_rev_primers_1B_anchored.fasta \
+  --pair-adapters \
+  -o untrimmed_R1.fastq.gz \
+  -p untrimmed_R2.fastq.gz \
+  -e 0 \
+  --no-indels \
+  /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/695da986-0794-43a1-8fc7-e6da427d07ae/call-cutadapt/inputs/2007597314/test_S100_R1_001.fastq.gz \
+  /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/695da986-0794-43a1-8fc7-e6da427d07ae/call-cutadapt/inputs/2007597314/test_S100_R2_001.fastq.gz \
+  > cutadapt.log
+
+      # -j is num cores
+      #have caret to force primer search at begining of read
+
+      #for dada2 no bio variation in seqs for algo
+      #removeprimers from sequences for dada2
+      #bc error profile in primers skews the dada2 algo
+
+# gzcat /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/695da986-0794-43a1-8fc7-e6da427d07ae/call-cutadapt/inputs/2007597314/test_S100_R1_001.fastq.gz
+# gzcat /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/695da986-0794-43a1-8fc7-e6da427d07ae/call-cutadapt/inputs/2007597314/test_S100_R2_001.fastq.gz
+)  > "$out695da986" 2> "$err695da986"
+echo $? > /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/695da986-0794-43a1-8fc7-e6da427d07ae/call-cutadapt/execution/rc.tmp
+(
+# add a .file in every empty directory to facilitate directory delocalization on the cloud
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/695da986-0794-43a1-8fc7-e6da427d07ae/call-cutadapt/execution
+find . -type d -exec sh -c '[ -z "$(ls -A '"'"'{}'"'"')" ] && touch '"'"'{}'"'"'/.file' \;
+)
+(
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/695da986-0794-43a1-8fc7-e6da427d07ae/call-cutadapt/execution
+sync
+
+
+)
+mv /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/695da986-0794-43a1-8fc7-e6da427d07ae/call-cutadapt/execution/rc.tmp /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/695da986-0794-43a1-8fc7-e6da427d07ae/call-cutadapt/execution/rc

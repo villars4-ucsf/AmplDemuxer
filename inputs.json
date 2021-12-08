@@ -1,0 +1,8 @@
+{
+  "AmplDemuxer.sample_name": "s100",
+  "AmplDemuxer.read_samples": ["seq_files_test/test_S100_R1_001.fastq.gz","seq_files_test/test_S100_R2_001.fastq.gz"],
+  "AmplDemuxer.primer_sets": [
+    ["fasta_files/v3_fwd_primers_1B_anchored.fasta", "fasta_files/v3_rev_primers_1B_anchored.fasta"],
+    ["fasta_files/v3_fwd_primers_2_anchored.fasta", "fasta_files/v3_rev_primers_2_anchored.fasta"]
+  ]
+}

@@ -1,0 +1,67 @@
+#!/bin/bash
+
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-BinByAmplicon/shard-0/execution
+tmpDir=$(mkdir -p "/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-BinByAmplicon/shard-0/tmp.86771746" && echo "/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-BinByAmplicon/shard-0/tmp.86771746")
+
+export _JAVA_OPTIONS=-Djava.io.tmpdir="$tmpDir"
+export TMPDIR="$tmpDir"
+export HOME="$HOME"
+(
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-BinByAmplicon/shard-0/execution
+
+)
+outccc64027="${tmpDir}/out.$$" errccc64027="${tmpDir}/err.$$"
+mkfifo "$outccc64027" "$errccc64027"
+trap 'rm "$outccc64027" "$errccc64027"' EXIT
+touch '/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-BinByAmplicon/shard-0/execution/stdout' '/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-BinByAmplicon/shard-0/execution/stderr'
+tee '/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-BinByAmplicon/shard-0/execution/stdout' < "$outccc64027" &
+tee '/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-BinByAmplicon/shard-0/execution/stderr' < "$errccc64027" >&2 &
+(
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-BinByAmplicon/shard-0/execution
+
+
+: '
+  NOTE
+    a. -j flag sets num cores
+    b. primer seqs have caret in order to force primer search at begining of read
+    c. primers need to be removed from reads bc the error
+       profile of the primers skews the dada2 algorithm
+'
+
+# Save path to file containing path to primers
+primer_file=/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-BinByAmplicon/shard-0/execution/write_lines_ff880b0f80f4567a45bdba86ac1d8d4d.tmp
+forward_primer=$(sed -n '1p' $primer_file)
+reverse_primer=$(sed -n '2p' $primer_file)
+
+# Save path to file containing path to sequences
+sequence_file=/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-BinByAmplicon/shard-0/execution/write_lines_f12e57fe848f1741b2a55f4940f783db.tmp
+forward_reads=$(sed -n '1p' $sequence_file)
+reverse_reads=$(sed -n '2p' $sequence_file)
+
+# Removing Primers
+cutadapt \
+  --action=retain \
+  --discard-untrimmed \
+  -g file:$forward_primer \
+  -G file:$reverse_primer \
+  --pair-adapters \
+  -o untrimmed_R1.fastq.gz \
+  -p untrimmed_R2.fastq.gz \
+  -e 0 \
+  --no-indels \
+  $forward_reads \
+  $reverse_reads > cutadapt.log
+)  > "$outccc64027" 2> "$errccc64027"
+echo $? > /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-BinByAmplicon/shard-0/execution/rc.tmp
+(
+# add a .file in every empty directory to facilitate directory delocalization on the cloud
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-BinByAmplicon/shard-0/execution
+find . -type d -exec sh -c '[ -z "$(ls -A '"'"'{}'"'"')" ] && touch '"'"'{}'"'"'/.file' \;
+)
+(
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-BinByAmplicon/shard-0/execution
+sync
+
+
+)
+mv /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-BinByAmplicon/shard-0/execution/rc.tmp /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-BinByAmplicon/shard-0/execution/rc

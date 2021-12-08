@@ -1,0 +1,41 @@
+Read1 before filtering:
+total reads: 0
+total bases: 0
+Q20 bases: 0(nan%)
+Q30 bases: 0(nan%)
+
+Read2 before filtering:
+total reads: 0
+total bases: 0
+Q20 bases: 0(nan%)
+Q30 bases: 0(nan%)
+
+Read1 after filtering:
+total reads: 0
+total bases: 0
+Q20 bases: 0(nan%)
+Q30 bases: 0(nan%)
+
+Read2 after filtering:
+total reads: 0
+total bases: 0
+Q20 bases: 0(nan%)
+Q30 bases: 0(nan%)
+
+Filtering result:
+reads passed filter: 0
+reads failed due to low quality: 0
+reads failed due to too many N: 0
+reads failed due to too short: 0
+reads with adapter trimmed: 0
+bases trimmed due to adapters: 0
+
+Duplication rate: 0%
+
+Insert size peak (evaluated by paired-end reads): 0
+
+JSON report: fastp.json
+HTML report: noprimers.html
+
+fastp -i /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/2a281740-b363-4691-981d-54662849ad7f/call-PrimerRemoval/shard-0/inputs/-1385783224/untrimmed_R1.fastq.gz -I /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/2a281740-b363-4691-981d-54662849ad7f/call-PrimerRemoval/shard-0/inputs/-1385783224/untrimmed_R2.fastq.gz -o R1_trimmed_noprimers.fastq.gz -O R2_trimmed_noprimers.fastq.gz -h noprimers.html 
+fastp v0.23.2, time used: 1 seconds

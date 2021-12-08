@@ -1,0 +1,38 @@
+#!/bin/bash
+
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/59d18ae3-a9f4-4fe1-a30b-9ef3d64bc217/call-cutadapt/execution
+tmpDir=$(mkdir -p "/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/59d18ae3-a9f4-4fe1-a30b-9ef3d64bc217/call-cutadapt/tmp.dba66cf6" && echo "/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/59d18ae3-a9f4-4fe1-a30b-9ef3d64bc217/call-cutadapt/tmp.dba66cf6")
+
+export _JAVA_OPTIONS=-Djava.io.tmpdir="$tmpDir"
+export TMPDIR="$tmpDir"
+export HOME="$HOME"
+(
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/59d18ae3-a9f4-4fe1-a30b-9ef3d64bc217/call-cutadapt/execution
+
+)
+out59d18ae3="${tmpDir}/out.$$" err59d18ae3="${tmpDir}/err.$$"
+mkfifo "$out59d18ae3" "$err59d18ae3"
+trap 'rm "$out59d18ae3" "$err59d18ae3"' EXIT
+touch '/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/59d18ae3-a9f4-4fe1-a30b-9ef3d64bc217/call-cutadapt/execution/stdout' '/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/59d18ae3-a9f4-4fe1-a30b-9ef3d64bc217/call-cutadapt/execution/stderr'
+tee '/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/59d18ae3-a9f4-4fe1-a30b-9ef3d64bc217/call-cutadapt/execution/stdout' < "$out59d18ae3" &
+tee '/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/59d18ae3-a9f4-4fe1-a30b-9ef3d64bc217/call-cutadapt/execution/stderr' < "$err59d18ae3" >&2 &
+(
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/59d18ae3-a9f4-4fe1-a30b-9ef3d64bc217/call-cutadapt/execution
+
+
+zcat /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/59d18ae3-a9f4-4fe1-a30b-9ef3d64bc217/call-cutadapt/inputs/-759946158/test_S100_R1_001.fastq.gz
+zcat /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/59d18ae3-a9f4-4fe1-a30b-9ef3d64bc217/call-cutadapt/inputs/-759946158/test_S100_R2_001.fastq.gz
+)  > "$out59d18ae3" 2> "$err59d18ae3"
+echo $? > /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/59d18ae3-a9f4-4fe1-a30b-9ef3d64bc217/call-cutadapt/execution/rc.tmp
+(
+# add a .file in every empty directory to facilitate directory delocalization on the cloud
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/59d18ae3-a9f4-4fe1-a30b-9ef3d64bc217/call-cutadapt/execution
+find . -type d -exec sh -c '[ -z "$(ls -A '"'"'{}'"'"')" ] && touch '"'"'{}'"'"'/.file' \;
+)
+(
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/59d18ae3-a9f4-4fe1-a30b-9ef3d64bc217/call-cutadapt/execution
+sync
+
+
+)
+mv /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/59d18ae3-a9f4-4fe1-a30b-9ef3d64bc217/call-cutadapt/execution/rc.tmp /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/59d18ae3-a9f4-4fe1-a30b-9ef3d64bc217/call-cutadapt/execution/rc

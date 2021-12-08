@@ -1,0 +1,59 @@
+#!/bin/bash
+
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/301173aa-308a-4643-b34d-ca7e1eab089d/call-cutadapt/shard-1/execution
+tmpDir=$(mkdir -p "/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/301173aa-308a-4643-b34d-ca7e1eab089d/call-cutadapt/shard-1/tmp.045bb36a" && echo "/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/301173aa-308a-4643-b34d-ca7e1eab089d/call-cutadapt/shard-1/tmp.045bb36a")
+
+export _JAVA_OPTIONS=-Djava.io.tmpdir="$tmpDir"
+export TMPDIR="$tmpDir"
+export HOME="$HOME"
+(
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/301173aa-308a-4643-b34d-ca7e1eab089d/call-cutadapt/shard-1/execution
+
+)
+out301173aa="${tmpDir}/out.$$" err301173aa="${tmpDir}/err.$$"
+mkfifo "$out301173aa" "$err301173aa"
+trap 'rm "$out301173aa" "$err301173aa"' EXIT
+touch '/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/301173aa-308a-4643-b34d-ca7e1eab089d/call-cutadapt/shard-1/execution/stdout' '/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/301173aa-308a-4643-b34d-ca7e1eab089d/call-cutadapt/shard-1/execution/stderr'
+tee '/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/301173aa-308a-4643-b34d-ca7e1eab089d/call-cutadapt/shard-1/execution/stdout' < "$out301173aa" &
+tee '/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/301173aa-308a-4643-b34d-ca7e1eab089d/call-cutadapt/shard-1/execution/stderr' < "$err301173aa" >&2 &
+(
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/301173aa-308a-4643-b34d-ca7e1eab089d/call-cutadapt/shard-1/execution
+
+
+echo /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/301173aa-308a-4643-b34d-ca7e1eab089d/call-cutadapt/shard-1/inputs/2007597314/test_S100_R1_001.fastq.gz /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/301173aa-308a-4643-b34d-ca7e1eab089d/call-cutadapt/shard-1/inputs/2007597314/test_S100_R2_001.fastq.gz
+cat /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/301173aa-308a-4643-b34d-ca7e1eab089d/call-cutadapt/shard-1/execution/write_lines_f3690878f60af5c63ed52cfcdc954368.tmp
+
+# cutadapt \
+#   --action=retain \
+#   --discard-untrimmed \
+#   -g file:$primer_f1 \
+#   -G file:$primer_f2 \
+#   --pair-adapters \
+#   -o untrimmed_R1.fastq.gz \
+#   -p untrimmed_R2.fastq.gz \
+#   -e 0 \
+#   --no-indels \
+#   $forward_reads \
+#   $reverse_reads \
+#   > cutadapt.log
+
+      # -j is num cores
+      #have caret to force primer search at begining of read
+
+      #for dada2 no bio variation in seqs for algo
+      #removeprimers from sequences for dada2
+      #bc error profile in primers skews the dada2 algo
+)  > "$out301173aa" 2> "$err301173aa"
+echo $? > /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/301173aa-308a-4643-b34d-ca7e1eab089d/call-cutadapt/shard-1/execution/rc.tmp
+(
+# add a .file in every empty directory to facilitate directory delocalization on the cloud
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/301173aa-308a-4643-b34d-ca7e1eab089d/call-cutadapt/shard-1/execution
+find . -type d -exec sh -c '[ -z "$(ls -A '"'"'{}'"'"')" ] && touch '"'"'{}'"'"'/.file' \;
+)
+(
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/301173aa-308a-4643-b34d-ca7e1eab089d/call-cutadapt/shard-1/execution
+sync
+
+
+)
+mv /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/301173aa-308a-4643-b34d-ca7e1eab089d/call-cutadapt/shard-1/execution/rc.tmp /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/301173aa-308a-4643-b34d-ca7e1eab089d/call-cutadapt/shard-1/execution/rc

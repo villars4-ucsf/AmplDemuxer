@@ -1,0 +1,67 @@
+#!/bin/bash
+
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/a0061cc0-3deb-4d17-a8c3-4ed9e4d6a475/call-PrimerRemoval/shard-1/execution
+tmpDir=$(mkdir -p "/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/a0061cc0-3deb-4d17-a8c3-4ed9e4d6a475/call-PrimerRemoval/shard-1/tmp.2c7bfc3d" && echo "/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/a0061cc0-3deb-4d17-a8c3-4ed9e4d6a475/call-PrimerRemoval/shard-1/tmp.2c7bfc3d")
+
+export _JAVA_OPTIONS=-Djava.io.tmpdir="$tmpDir"
+export TMPDIR="$tmpDir"
+export HOME="$HOME"
+(
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/a0061cc0-3deb-4d17-a8c3-4ed9e4d6a475/call-PrimerRemoval/shard-1/execution
+
+)
+outa0061cc0="${tmpDir}/out.$$" erra0061cc0="${tmpDir}/err.$$"
+mkfifo "$outa0061cc0" "$erra0061cc0"
+trap 'rm "$outa0061cc0" "$erra0061cc0"' EXIT
+touch '/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/a0061cc0-3deb-4d17-a8c3-4ed9e4d6a475/call-PrimerRemoval/shard-1/execution/stdout' '/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/a0061cc0-3deb-4d17-a8c3-4ed9e4d6a475/call-PrimerRemoval/shard-1/execution/stderr'
+tee '/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/a0061cc0-3deb-4d17-a8c3-4ed9e4d6a475/call-PrimerRemoval/shard-1/execution/stdout' < "$outa0061cc0" &
+tee '/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/a0061cc0-3deb-4d17-a8c3-4ed9e4d6a475/call-PrimerRemoval/shard-1/execution/stderr' < "$erra0061cc0" >&2 &
+(
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/a0061cc0-3deb-4d17-a8c3-4ed9e4d6a475/call-PrimerRemoval/shard-1/execution
+
+
+: '
+  NOTE
+    a. -j flag sets num cores
+    b. primer seqs have caret in order to force primer search at begining of read
+    c. primers need to be removed from reads bc the error
+       profile of the primers skews the dada2 algorithm
+'
+
+# Save path to file containing path to primers
+primer_file=/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/a0061cc0-3deb-4d17-a8c3-4ed9e4d6a475/call-PrimerRemoval/shard-1/execution/write_lines_c97c68a291ffa56508702a5b6b6f88b5.tmp
+forward_primer=$(sed -n '1p' $primer_file)
+reverse_primer=$(sed -n '2p' $primer_file)
+
+# Save path to file containing path to sequences
+sequence_file=/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/a0061cc0-3deb-4d17-a8c3-4ed9e4d6a475/call-PrimerRemoval/shard-1/execution/write_lines_3ed3be841d6f3de710fc79027dee702a.tmp
+forward_reads=$(sed -n '1p' $sequence_file)
+reverse_reads=$(sed -n '2p' $sequence_file)
+
+# Removing Primers
+cutadapt \
+  --action=retain \
+  --discard-untrimmed \
+  -g file:$forward_primer \
+  -G file:$reverse_primer \
+  --pair-adapters \
+  -o untrimmed_R1.fastq.gz \
+  -p untrimmed_R2.fastq.gz \
+  -e 0 \
+  --no-indels \
+  $forward_reads \
+  $reverse_reads > cutadapt.log
+)  > "$outa0061cc0" 2> "$erra0061cc0"
+echo $? > /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/a0061cc0-3deb-4d17-a8c3-4ed9e4d6a475/call-PrimerRemoval/shard-1/execution/rc.tmp
+(
+# add a .file in every empty directory to facilitate directory delocalization on the cloud
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/a0061cc0-3deb-4d17-a8c3-4ed9e4d6a475/call-PrimerRemoval/shard-1/execution
+find . -type d -exec sh -c '[ -z "$(ls -A '"'"'{}'"'"')" ] && touch '"'"'{}'"'"'/.file' \;
+)
+(
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/a0061cc0-3deb-4d17-a8c3-4ed9e4d6a475/call-PrimerRemoval/shard-1/execution
+sync
+
+
+)
+mv /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/a0061cc0-3deb-4d17-a8c3-4ed9e4d6a475/call-PrimerRemoval/shard-1/execution/rc.tmp /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/a0061cc0-3deb-4d17-a8c3-4ed9e4d6a475/call-PrimerRemoval/shard-1/execution/rc

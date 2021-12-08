@@ -1,0 +1,47 @@
+#!/bin/bash
+
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-PrimerRemoval/shard-1/execution
+tmpDir=$(mkdir -p "/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-PrimerRemoval/shard-1/tmp.5d8ed825" && echo "/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-PrimerRemoval/shard-1/tmp.5d8ed825")
+
+export _JAVA_OPTIONS=-Djava.io.tmpdir="$tmpDir"
+export TMPDIR="$tmpDir"
+export HOME="$HOME"
+(
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-PrimerRemoval/shard-1/execution
+
+)
+outccc64027="${tmpDir}/out.$$" errccc64027="${tmpDir}/err.$$"
+mkfifo "$outccc64027" "$errccc64027"
+trap 'rm "$outccc64027" "$errccc64027"' EXIT
+touch '/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-PrimerRemoval/shard-1/execution/stdout' '/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-PrimerRemoval/shard-1/execution/stderr'
+tee '/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-PrimerRemoval/shard-1/execution/stdout' < "$outccc64027" &
+tee '/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-PrimerRemoval/shard-1/execution/stderr' < "$errccc64027" >&2 &
+(
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-PrimerRemoval/shard-1/execution
+
+
+: '
+  NOTE
+    a. the "-w" flag sets thread count 
+'
+
+fastp \
+  -i /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-PrimerRemoval/shard-1/inputs/2031091286/untrimmed_R1.fastq.gz \
+  -I /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-PrimerRemoval/shard-1/inputs/2031091286/untrimmed_R2.fastq.gz \
+  -o R1_trimmed_noprimers.fastq.gz \
+  -O R2_trimmed_noprimers.fastq.gz \
+  -h noprimers.html
+)  > "$outccc64027" 2> "$errccc64027"
+echo $? > /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-PrimerRemoval/shard-1/execution/rc.tmp
+(
+# add a .file in every empty directory to facilitate directory delocalization on the cloud
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-PrimerRemoval/shard-1/execution
+find . -type d -exec sh -c '[ -z "$(ls -A '"'"'{}'"'"')" ] && touch '"'"'{}'"'"'/.file' \;
+)
+(
+cd /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-PrimerRemoval/shard-1/execution
+sync
+
+
+)
+mv /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-PrimerRemoval/shard-1/execution/rc.tmp /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/ccc64027-8cc0-4398-8ef8-e3182b36b06e/call-PrimerRemoval/shard-1/execution/rc

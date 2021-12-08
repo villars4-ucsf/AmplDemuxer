@@ -1,0 +1,7 @@
+This is cutadapt 3.5 with Python 3.9.5
+Command line parameters:  
+Run "cutadapt --help" to see command-line options.
+See https://cutadapt.readthedocs.io/ for full documentation.
+
+cutadapt: error: [Errno 2] No such file or directory: ' '
+/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/wf/695da986-0794-43a1-8fc7-e6da427d07ae/call-cutadapt/execution/script: line 25: --action=retain: command not found

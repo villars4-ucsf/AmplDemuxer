@@ -1,0 +1,3 @@
+#!/bin/bash
+'/bin/bash' '/Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/5994d825-ac3c-4d41-bbfa-516ac1a1b297/call-cutadapt/shard-0/execution/script.submit' < /dev/null || { rc=$?; if [ "$rc" -gt "128" ]; then echo $rc; else echo -1; fi } > /Users/severianovillarruel/eppicenter/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/5994d825-ac3c-4d41-bbfa-516ac1a1b297/call-cutadapt/shard-0/execution/rc &
+echo $!
