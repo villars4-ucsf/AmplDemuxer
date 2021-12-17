@@ -62,7 +62,9 @@ task BinByAmplicon {
   }
 
    runtime {
-     simg: "/wynton/home/rodriguez-barraquer/villars4_ucsf/library/singularity/cutadapt-2.5.sif"
+     docker: "/wynton/home/rodriguez-barraquer/villars4_ucsf/library/singularity/cutadapt-2.5.sif"
+     cpu: "1"
+     memory: "1 GB"
    }
 
   output {
@@ -92,9 +94,11 @@ task PrimerRemoval {
       -h noprimers.html
   }
 
-  # runtime {
-  #   docker: "broadinstitute/my_image"
-  # }
+    runtime {
+     docker: "/wynton/home/rodriguez-barraquer/villars4_ucsf/library/singularity/cutadapt-2.5.sif"
+     cpu: "1"
+     memory: "1 GB"
+    }
 
   output {
     File binned_forward_seqs_no_primer = "binned_forward_seqs_no_primer.fastq.gz"
