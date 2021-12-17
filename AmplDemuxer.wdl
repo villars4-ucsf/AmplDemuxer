@@ -12,7 +12,7 @@ workflow AmplDemuxer {
     call PrimerRemoval {input: binned_forward_seqs = BinByAmplicon.binned_forward_seqs, binned_reverse_seqs = BinByAmplicon.binned_reverse_seqs}
   }
 
-  call AmpliconDataGeneration {input: binned_forward_seqs_no_primer = PrimerRemoval.binned_forward_seqs_no_primer, binned_reverse_seqs_no_primer = PrimerRemoval.binned_reverse_seqs_no_primer}
+  #call AmpliconDataGeneration {input: binned_forward_seqs_no_primer = PrimerRemoval.binned_forward_seqs_no_primer, binned_reverse_seqs_no_primer = PrimerRemoval.binned_reverse_seqs_no_primer}
 
   output {
     # Array[File] r2s = BinByAmplicon.r2
@@ -61,9 +61,9 @@ task BinByAmplicon {
 
   }
 
-  # runtime {
-  #   docker: "broadinstitute/my_image"
-  # }
+   runtime {
+     simg: "/wynton/home/rodriguez-barraquer/villars4_ucsf/library/singularity/cutadapt-2.5.sif"
+   }
 
   output {
     File binned_forward_seqs = "binned_R1.fastq.gz"

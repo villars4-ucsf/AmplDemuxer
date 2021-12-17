@@ -2,5 +2,6 @@
 # simple wdl run
 
 ```
-java -jar cromwell-71.jar run test.wdl -i inputs.json
+~/shed/jdk-17.0.1/bin/java -jar ~/shed/cromwell-72.jar run AmplDemuxer.wdl -i inputs.json
+~/shed/jdk-17.0.1/bin/java -jar -Dconfig.file=cromwell-sge.conf ~/shed/cromwell-72.jar run AmplDemuxer.wdl -i inputs.json
 ```
