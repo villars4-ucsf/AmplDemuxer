@@ -62,9 +62,7 @@ task BinByAmplicon {
   }
 
    runtime {
-     docker: "/wynton/home/rodriguez-barraquer/villars4_ucsf/library/singularity/cutadapt-2.5.sif"
-     cpu: "1"
-     memory: "1 GB"
+     simg: "/wynton/home/rodriguez-barraquer/villars4_ucsf/library/singularity/cutadapt-2.5.sif"
    }
 
   output {
@@ -95,9 +93,7 @@ task PrimerRemoval {
   }
 
     runtime {
-     docker: "/wynton/home/rodriguez-barraquer/villars4_ucsf/library/singularity/cutadapt-2.5.sif"
-     cpu: "1"
-     memory: "1 GB"
+     simg: "~/library/singularity/cutadapt-2.5.sif"
     }
 
   output {
