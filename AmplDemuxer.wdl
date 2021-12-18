@@ -52,8 +52,8 @@ task BinByAmplicon {
       -g file:$forward_primer \
       -G file:$reverse_primer \
       --pair-adapters \
-      -o untrimmed_R1.fastq.gz \
-      -p untrimmed_R2.fastq.gz \
+      -o binned_R1.fastq.gz \
+      -p binned_R2.fastq.gz \
       -e 0 \
       --no-indels \
       $forward_reads \
@@ -62,7 +62,7 @@ task BinByAmplicon {
   }
 
    runtime {
-     simg: "/wynton/home/rodriguez-barraquer/villars4_ucsf/library/singularity/cutadapt-2.5.sif"
+     simg: "/wynton/home/rodriguez-barraquer/villars4_ucsf/library/singularity/cutadapt-3.5.sif"
    }
 
   output {
@@ -93,7 +93,7 @@ task PrimerRemoval {
   }
 
     runtime {
-     simg: "~/library/singularity/cutadapt-2.5.sif"
+     simg: "~/library/singularity/fastp-0.20.0.sif"
     }
 
   output {
