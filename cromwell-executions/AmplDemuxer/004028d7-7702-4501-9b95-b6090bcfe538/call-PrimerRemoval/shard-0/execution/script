@@ -1,0 +1,47 @@
+#!/bin/bash
+
+cd /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/004028d7-7702-4501-9b95-b6090bcfe538/call-PrimerRemoval/shard-0/execution
+tmpDir=$(mkdir -p "/wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/004028d7-7702-4501-9b95-b6090bcfe538/call-PrimerRemoval/shard-0/tmp.49c7acc8" && echo "/wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/004028d7-7702-4501-9b95-b6090bcfe538/call-PrimerRemoval/shard-0/tmp.49c7acc8")
+
+export _JAVA_OPTIONS=-Djava.io.tmpdir="$tmpDir"
+export TMPDIR="$tmpDir"
+export HOME="$HOME"
+(
+cd /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/004028d7-7702-4501-9b95-b6090bcfe538/call-PrimerRemoval/shard-0/execution
+
+)
+out004028d7="${tmpDir}/out.$$" err004028d7="${tmpDir}/err.$$"
+mkfifo "$out004028d7" "$err004028d7"
+trap 'rm "$out004028d7" "$err004028d7"' EXIT
+touch '/wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/004028d7-7702-4501-9b95-b6090bcfe538/call-PrimerRemoval/shard-0/execution/stdout' '/wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/004028d7-7702-4501-9b95-b6090bcfe538/call-PrimerRemoval/shard-0/execution/stderr'
+tee '/wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/004028d7-7702-4501-9b95-b6090bcfe538/call-PrimerRemoval/shard-0/execution/stdout' < "$out004028d7" &
+tee '/wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/004028d7-7702-4501-9b95-b6090bcfe538/call-PrimerRemoval/shard-0/execution/stderr' < "$err004028d7" >&2 &
+(
+cd /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/004028d7-7702-4501-9b95-b6090bcfe538/call-PrimerRemoval/shard-0/execution
+
+
+: '
+  NOTE
+    a. the "-w" flag sets thread count 
+'
+
+fastp \
+  -i /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/004028d7-7702-4501-9b95-b6090bcfe538/call-PrimerRemoval/shard-0/inputs/-1590792844/binned_R1.fastq.gz \
+  -I /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/004028d7-7702-4501-9b95-b6090bcfe538/call-PrimerRemoval/shard-0/inputs/-1590792844/binned_R2.fastq.gz \
+  -o binned_forward_seqs_no_primer.fastq.gz \
+  -O binned_reverse_seqs_no_primer.fastq.gz \
+  -h noprimers.html
+)  > "$out004028d7" 2> "$err004028d7"
+echo $? > /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/004028d7-7702-4501-9b95-b6090bcfe538/call-PrimerRemoval/shard-0/execution/rc.tmp
+(
+# add a .file in every empty directory to facilitate directory delocalization on the cloud
+cd /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/004028d7-7702-4501-9b95-b6090bcfe538/call-PrimerRemoval/shard-0/execution
+find . -type d -exec sh -c '[ -z "$(ls -A '"'"'{}'"'"')" ] && touch '"'"'{}'"'"'/.file' \;
+)
+(
+cd /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/004028d7-7702-4501-9b95-b6090bcfe538/call-PrimerRemoval/shard-0/execution
+sync
+
+
+)
+mv /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/004028d7-7702-4501-9b95-b6090bcfe538/call-PrimerRemoval/shard-0/execution/rc.tmp /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/004028d7-7702-4501-9b95-b6090bcfe538/call-PrimerRemoval/shard-0/execution/rc

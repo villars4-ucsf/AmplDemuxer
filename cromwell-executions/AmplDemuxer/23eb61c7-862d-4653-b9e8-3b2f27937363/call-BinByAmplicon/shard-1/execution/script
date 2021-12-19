@@ -1,0 +1,67 @@
+#!/bin/sh
+
+cd /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/23eb61c7-862d-4653-b9e8-3b2f27937363/call-BinByAmplicon/shard-1/execution
+tmpDir=$(mkdir -p "/wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/23eb61c7-862d-4653-b9e8-3b2f27937363/call-BinByAmplicon/shard-1/tmp.9065f933" && echo "/wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/23eb61c7-862d-4653-b9e8-3b2f27937363/call-BinByAmplicon/shard-1/tmp.9065f933")
+
+export _JAVA_OPTIONS=-Djava.io.tmpdir="$tmpDir"
+export TMPDIR="$tmpDir"
+export HOME="$HOME"
+(
+cd /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/23eb61c7-862d-4653-b9e8-3b2f27937363/call-BinByAmplicon/shard-1/execution
+
+)
+out23eb61c7="${tmpDir}/out.$$" err23eb61c7="${tmpDir}/err.$$"
+mkfifo "$out23eb61c7" "$err23eb61c7"
+trap 'rm "$out23eb61c7" "$err23eb61c7"' EXIT
+touch '/wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/23eb61c7-862d-4653-b9e8-3b2f27937363/call-BinByAmplicon/shard-1/execution/stdout' '/wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/23eb61c7-862d-4653-b9e8-3b2f27937363/call-BinByAmplicon/shard-1/execution/stderr'
+tee '/wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/23eb61c7-862d-4653-b9e8-3b2f27937363/call-BinByAmplicon/shard-1/execution/stdout' < "$out23eb61c7" &
+tee '/wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/23eb61c7-862d-4653-b9e8-3b2f27937363/call-BinByAmplicon/shard-1/execution/stderr' < "$err23eb61c7" >&2 &
+(
+cd /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/23eb61c7-862d-4653-b9e8-3b2f27937363/call-BinByAmplicon/shard-1/execution
+
+
+: '
+  NOTE
+    a. -j flag sets num cores
+    b. primer seqs have caret in order to force primer search at begining of read
+    c. primers need to be removed from reads bc the error
+       profile of the primers skews the dada2 algorithm
+'
+
+# Save path to file containing path to primers
+primer_file=/wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/23eb61c7-862d-4653-b9e8-3b2f27937363/call-BinByAmplicon/shard-1/execution/write_lines_309e03db18e72351d5ea364226f092a8.tmp
+forward_primer=$(sed -n '1p' $primer_file)
+reverse_primer=$(sed -n '2p' $primer_file)
+
+# Save path to file containing path to sequences
+sequence_file=/wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/23eb61c7-862d-4653-b9e8-3b2f27937363/call-BinByAmplicon/shard-1/execution/write_lines_cc009cdc75340efd029e3e709cfd2c07.tmp
+forward_reads=$(sed -n '1p' $sequence_file)
+reverse_reads=$(sed -n '2p' $sequence_file)
+
+# Removing Primers
+cutadapt \
+  --action=none \
+  --discard-untrimmed \
+  -g file:$forward_primer \
+  -G file:$reverse_primer \
+  --pair-adapters \
+  -o untrimmed_R1.fastq.gz \
+  -p untrimmed_R2.fastq.gz \
+  -e 0 \
+  --no-indels \
+  $forward_reads \
+  $reverse_reads > cutadapt.log
+)  > "$out23eb61c7" 2> "$err23eb61c7"
+echo $? > /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/23eb61c7-862d-4653-b9e8-3b2f27937363/call-BinByAmplicon/shard-1/execution/rc.tmp
+(
+# add a .file in every empty directory to facilitate directory delocalization on the cloud
+cd /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/23eb61c7-862d-4653-b9e8-3b2f27937363/call-BinByAmplicon/shard-1/execution
+find . -type d -exec sh -c '[ -z "$(ls -A '"'"'{}'"'"')" ] && touch '"'"'{}'"'"'/.file' \;
+)
+(
+cd /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/23eb61c7-862d-4653-b9e8-3b2f27937363/call-BinByAmplicon/shard-1/execution
+sync
+
+
+)
+mv /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/23eb61c7-862d-4653-b9e8-3b2f27937363/call-BinByAmplicon/shard-1/execution/rc.tmp /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/23eb61c7-862d-4653-b9e8-3b2f27937363/call-BinByAmplicon/shard-1/execution/rc

@@ -1,0 +1,11 @@
+#!/bin/bash
+qsub \
+-terse \
+-V \
+-b y \
+-N cromwell_f2aee362_PrimerRemoval \
+-wd /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/f2aee362-f88b-4682-b781-07693c14631b/call-PrimerRemoval/shard-0 \
+-o /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/f2aee362-f88b-4682-b781-07693c14631b/call-PrimerRemoval/shard-0/execution/stdout.qsub \
+-e /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/f2aee362-f88b-4682-b781-07693c14631b/call-PrimerRemoval/shard-0/execution/stderr.qsub \
+-pe smp 1 \
+singularity exec ~/library/singularity/fastp-0.20.0.sif /bin/bash /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/f2aee362-f88b-4682-b781-07693c14631b/call-PrimerRemoval/shard-0/execution/script

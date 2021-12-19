@@ -1,0 +1,261 @@
+This is cutadapt 3.5 with Python 3.8.10
+Command line parameters: --action=retain --discard-untrimmed -g file:/wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/53fcc6dc-4378-4d4a-9e2d-0fa51d71f5bc/call-BinByAmplicon/shard-1/inputs/-564344501/v3_fwd_primers_2_anchored.fasta -G file:/wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/53fcc6dc-4378-4d4a-9e2d-0fa51d71f5bc/call-BinByAmplicon/shard-1/inputs/-564344501/v3_rev_primers_2_anchored.fasta --pair-adapters -o binned_R1.fastq.gz -p binned_R2.fastq.gz -e 0 --no-indels /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/53fcc6dc-4378-4d4a-9e2d-0fa51d71f5bc/call-BinByAmplicon/shard-1/inputs/-1288234388/test_S100_R1_001.fastq.gz /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/53fcc6dc-4378-4d4a-9e2d-0fa51d71f5bc/call-BinByAmplicon/shard-1/inputs/-1288234388/test_S100_R2_001.fastq.gz
+Processing reads on 1 core in paired-end mode ...
+Finished in 0.20 s (7846 µs/read; 0.01 M reads/minute).
+
+=== Summary ===
+
+Total read pairs processed:                 25
+  Read 1 with adapter:                       0 (0.0%)
+  Read 2 with adapter:                       0 (0.0%)
+
+== Read fate breakdown ==
+Pairs discarded as untrimmed:               25 (100.0%)
+Pairs written (passing filters):             0 (0.0%)
+
+Total basepairs processed:         7,350 bp
+  Read 1:         3,675 bp
+  Read 2:         3,675 bp
+Total written (filtered):              0 bp (0.0%)
+  Read 1:             0 bp
+  Read 2:             0 bp
+
+=== First read: Adapter Pf3D7_03_v3-0221295-0221532-2 ===
+
+Sequence: ACAACTCAAACTAAGATGTGTTCTTTATCTAAT; Type: anchored 5'; Length: 33; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_03_v3-0980853-0981120-2 ===
+
+Sequence: ATTACCTGCTGTTGGATAATCATAATAAAATAC; Type: anchored 5'; Length: 33; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_04_v3-0748585-0748822-2 ===
+
+Sequence: TTCCGTTGTTTATCAAGAATTTTTAGAAAAGAA; Type: anchored 5'; Length: 33; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_04_v3-1083299-1083563-2 ===
+
+Sequence: TTCATTTATTTTCTTAATAAAAGCATCTACAGC; Type: anchored 5'; Length: 33; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_07_v3-0403487-0403750-2 ===
+
+Sequence: CAGATGGCTCACGTTTAGGTG; Type: anchored 5'; Length: 21; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_07_v3-0405517-0405773-2 ===
+
+Sequence: TCATTTTCTATGCTTTTTATAGATTATCGACAA; Type: anchored 5'; Length: 33; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_08_v3-0550057-0550318-2 ===
+
+Sequence: TTCTTGTATTAAATGGAATACCTCGTTATAGGA; Type: anchored 5'; Length: 33; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_08_v3-1365750-1365999-2 ===
+
+Sequence: TCTTGTAATGTGTTTTTAACATTATAGCAGTAA; Type: anchored 5'; Length: 33; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_08_v3-1366575-1366822-2 ===
+
+Sequence: GCTTGTGCGGATGATGATAATACAC; Type: anchored 5'; Length: 25; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_08_v3-1370814-1371045-2 ===
+
+Sequence: CCAAATAATATTTTGTGCAAATTCATTTTCTCA; Type: anchored 5'; Length: 33; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_08_v3-1375205-1375450-2 ===
+
+Sequence: TTTCTATTTGCAATTAAAATGCTTACGTTATCT; Type: anchored 5'; Length: 33; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_08_v3-1386786-1387035-2 ===
+
+Sequence: TTTTTCTAACATAAGCGTGTTAGTAGTTTCA; Type: anchored 5'; Length: 31; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_11_v3-1902041-1902278-2 ===
+
+Sequence: ACATATGTCTCTTCATTTATCAGACCTGAT; Type: anchored 5'; Length: 30; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_11_v3-1950431-1950680-2 ===
+
+Sequence: CGCATGGAATAGAAGTTTAGCTGATTATA; Type: anchored 5'; Length: 29; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_11_v3-1968050-1968296-2 ===
+
+Sequence: CACATGTTAATAATATTAAGGAAAAGGCAATAG; Type: anchored 5'; Length: 33; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_11_v3-2001725-2001999-2 ===
+
+Sequence: AAAAAGTTCCTAAAGAATCTAAAAATACCAGAA; Type: anchored 5'; Length: 33; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_12_v3-2092654-2092884-2 ===
+
+Sequence: CTTGATTTGTCATTTAACCCGTGTTATAG; Type: anchored 5'; Length: 29; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_13_v3-1725124-1725365-2 ===
+
+Sequence: CCTGAACTTCTAGCTTCTAATAAGGCAT; Type: anchored 5'; Length: 28; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_13_v3-1725379-1725652-2 ===
+
+Sequence: ATTCTACCATTTGACGTAACACCAC; Type: anchored 5'; Length: 25; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_13_v3-1725887-1726123-2 ===
+
+Sequence: GTTGTGTTAAGGTATGTCTAGATGTTTCA; Type: anchored 5'; Length: 29; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_13_v3-1726174-1726408-2 ===
+
+Sequence: TCATGTAATTTCTGTTCTTCAATATTTTTACGG; Type: anchored 5'; Length: 33; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_13_v3-1726884-1727148-2 ===
+
+Sequence: GCTACTACTTCCGCTTTTATCATCA; Type: anchored 5'; Length: 25; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_13_v3-2770591-2770863-2 ===
+
+Sequence: AAATATTTAGAAAACAATTTGAAAAGTGTGGC; Type: anchored 5'; Length: 32; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_13_v3-2780346-2780577-2 ===
+
+Sequence: AAAAATGAGGGCCGGTAGTTC; Type: anchored 5'; Length: 21; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_13_v3-2814583-2814832-2 ===
+
+Sequence: CTATACCAATTACTCATATAGAAGCTGAAAAGG; Type: anchored 5'; Length: 33; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_13_v3-2816310-2816554-2 ===
+
+Sequence: GGTGGAGAGGTAACACATACTGAT; Type: anchored 5'; Length: 24; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_13_v3-2840447-2840746-2 ===
+
+Sequence: ACAAAGACAGTAGAAAAATCGCTATCC; Type: anchored 5'; Length: 27; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_13_v3-2841390-2841688-2 ===
+
+Sequence: ACCTGCATGTGCTTGACTTTC; Type: anchored 5'; Length: 21; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_13_v3-2844334-2844629-2 ===
+
+Sequence: ATGCTAGGTGTATACGCACAG; Type: anchored 5'; Length: 21; Trimmed: 0 times
+
+=== First read: Adapter Pf3D7_14_v3-0294503-0294768-2 ===
+
+Sequence: ACTGTACCAACTGACTTTTTAAATAAAATGTT; Type: anchored 5'; Length: 32; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_03_v3-0221295-0221532-2 ===
+
+Sequence: ACTGAATGGTCCCCATGTAGT; Type: anchored 5'; Length: 21; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_03_v3-0980853-0981120-2 ===
+
+Sequence: CTGCTCTAGAAATTCAGAGTGTACATTT; Type: anchored 5'; Length: 28; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_04_v3-0748585-0748822-2 ===
+
+Sequence: TTTTTCTTCTCCTTTTATACAATTTTGTTCATT; Type: anchored 5'; Length: 33; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_04_v3-1083299-1083563-2 ===
+
+Sequence: TGTGAAAAATAATGAAGACTATAAAAATGTGGA; Type: anchored 5'; Length: 33; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_07_v3-0403487-0403750-2 ===
+
+Sequence: TTCCCTTTTTATTTCCAAATAAGGAATAAACAA; Type: anchored 5'; Length: 33; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_07_v3-0405517-0405773-2 ===
+
+Sequence: AAAATATGATACGTTGTACCATCATAAACA; Type: anchored 5'; Length: 30; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_08_v3-0550057-0550318-2 ===
+
+Sequence: ATCCAATTGTGTGATTTGTCCACA; Type: anchored 5'; Length: 24; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_08_v3-1365750-1365999-2 ===
+
+Sequence: CACAAATCGAAGTTACATTTGATATTGATGC; Type: anchored 5'; Length: 31; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_08_v3-1366575-1366822-2 ===
+
+Sequence: GATTTAGGAGGAGGAACATTTGATGTT; Type: anchored 5'; Length: 27; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_08_v3-1370814-1371045-2 ===
+
+Sequence: GGTTGCTACAATATAGACAAAAAGAAATTAGTT; Type: anchored 5'; Length: 33; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_08_v3-1375205-1375450-2 ===
+
+Sequence: TTTCACTTCATGTATTTATGTATGCAGAACTT; Type: anchored 5'; Length: 32; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_08_v3-1386786-1387035-2 ===
+
+Sequence: GGTGTTCCATTGAAATCAATTATTAATGCA; Type: anchored 5'; Length: 30; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_11_v3-1902041-1902278-2 ===
+
+Sequence: CTGCCCAAATACCCCAATAGTTATT; Type: anchored 5'; Length: 25; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_11_v3-1950431-1950680-2 ===
+
+Sequence: CAAAAATTGATCTTCTGTGTCATCTCTACT; Type: anchored 5'; Length: 30; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_11_v3-1968050-1968296-2 ===
+
+Sequence: ATATTGAATGAGACATTTTCTTCGCACT; Type: anchored 5'; Length: 28; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_11_v3-2001725-2001999-2 ===
+
+Sequence: ATCATCAACTTCTTTCCTATGTGATGTTTT; Type: anchored 5'; Length: 30; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_12_v3-2092654-2092884-2 ===
+
+Sequence: ATCCCATATATTAACAGAAGAATCAAAAGAGG; Type: anchored 5'; Length: 32; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_13_v3-1725124-1725365-2 ===
+
+Sequence: GGATATGATGGCTCTTCTATTATACCGAA; Type: anchored 5'; Length: 29; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_13_v3-1725379-1725652-2 ===
+
+Sequence: GTGGATTTGATGGTGTAGAATATTTAAATTCG; Type: anchored 5'; Length: 32; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_13_v3-1725887-1726123-2 ===
+
+Sequence: AAAAAGAAAAAGAAGAACATAGGAAACGA; Type: anchored 5'; Length: 29; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_13_v3-1726174-1726408-2 ===
+
+Sequence: ATGATACTTATGAAAAGAAAATTATTGAAACGG; Type: anchored 5'; Length: 33; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_13_v3-1726884-1727148-2 ===
+
+Sequence: AGGCGTAAATATTCGTGTTATAATTTCTCC; Type: anchored 5'; Length: 30; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_13_v3-2770591-2770863-2 ===
+
+Sequence: ATTAATACATTTTTCAATTATCGAGGGTAAACT; Type: anchored 5'; Length: 33; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_13_v3-2780346-2780577-2 ===
+
+Sequence: ATGTATTTCTGAAGGACTATATATGGAACA; Type: anchored 5'; Length: 30; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_13_v3-2814583-2814832-2 ===
+
+Sequence: CCTTGATTAGAGTCCTCATTTGCAT; Type: anchored 5'; Length: 25; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_13_v3-2816310-2816554-2 ===
+
+Sequence: CTTGTAGAAGGAATAGATACACCATCCT; Type: anchored 5'; Length: 28; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_13_v3-2840447-2840746-2 ===
+
+Sequence: CGCATCACTTACACCATTAAATCCA; Type: anchored 5'; Length: 25; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_13_v3-2841390-2841688-2 ===
+
+Sequence: AAAAATAAAATATTATCCGCTGCCGTT; Type: anchored 5'; Length: 27; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_13_v3-2844334-2844629-2 ===
+
+Sequence: AACCTTATGAGACCCTCCTTTATATTTATC; Type: anchored 5'; Length: 30; Trimmed: 0 times
+
+=== Second read: Adapter Pf3D7_14_v3-0294503-0294768-2 ===
+
+Sequence: TATTTTCTCATGAATGGGTCACCTAGA; Type: anchored 5'; Length: 27; Trimmed: 0 times

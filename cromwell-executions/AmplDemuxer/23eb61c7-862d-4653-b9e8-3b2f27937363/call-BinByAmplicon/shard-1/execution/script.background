@@ -1,0 +1,3 @@
+#!/bin/bash
+'/bin/bash' '/wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/23eb61c7-862d-4653-b9e8-3b2f27937363/call-BinByAmplicon/shard-1/execution/script.submit' < /dev/null || { rc=$?; if [ "$rc" -gt "128" ]; then echo $rc; else echo -1; fi } > /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/23eb61c7-862d-4653-b9e8-3b2f27937363/call-BinByAmplicon/shard-1/execution/rc &
+echo $!

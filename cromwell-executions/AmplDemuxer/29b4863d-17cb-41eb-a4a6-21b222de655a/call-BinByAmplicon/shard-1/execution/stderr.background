@@ -1,0 +1,4 @@
+Run "cutadapt --help" to see command-line options.
+See https://cutadapt.readthedocs.io/ for full documentation.
+
+cutadapt: error: argument --action: invalid choice: 'retain' (choose from 'trim', 'mask', 'lowercase', 'none')

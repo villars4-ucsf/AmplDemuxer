@@ -1,0 +1,14 @@
+#!/bin/bash
+qsub \
+-terse \
+-V \
+-b y \
+-N cromwell_544d95b3_BinByAmplicon \
+-wd /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/544d95b3-d15f-48f0-a4a1-6c301c06636f/call-BinByAmplicon/shard-1 \
+-o /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/544d95b3-d15f-48f0-a4a1-6c301c06636f/call-BinByAmplicon/shard-1/execution/stdout.qsub \
+-e /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/544d95b3-d15f-48f0-a4a1-6c301c06636f/call-BinByAmplicon/shard-1/execution/stderr.qsub \
+-pe smp 1 \
+-l mem_free=1.0g \
+ \
+ \
+/usr/bin/env bash /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/544d95b3-d15f-48f0-a4a1-6c301c06636f/call-BinByAmplicon/shard-1/execution/script

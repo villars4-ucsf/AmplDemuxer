@@ -1,0 +1,11 @@
+#!/bin/bash
+       qsub \
+       -terse \
+       -V \
+       -b y \
+       -N cromwell_fb400e07_BinByAmplicon \
+       -wd /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/fb400e07-3bb1-4c37-8427-a799bc10ff74/call-BinByAmplicon/shard-1 \
+       -o /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/fb400e07-3bb1-4c37-8427-a799bc10ff74/call-BinByAmplicon/shard-1/execution/stdout.qsub \
+       -e /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/fb400e07-3bb1-4c37-8427-a799bc10ff74/call-BinByAmplicon/shard-1/execution/stderr.qsub \
+module load singularity \
+       singularity exec  /bin/sh /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/fb400e07-3bb1-4c37-8427-a799bc10ff74/call-BinByAmplicon/shard-1/execution/script

@@ -1,0 +1,41 @@
+Read1 before filtering:
+total reads: 0
+total bases: 0
+Q20 bases: 0(-nan%)
+Q30 bases: 0(-nan%)
+
+Read2 before filtering:
+total reads: 0
+total bases: 0
+Q20 bases: 0(-nan%)
+Q30 bases: 0(-nan%)
+
+Read1 after filtering:
+total reads: 0
+total bases: 0
+Q20 bases: 0(-nan%)
+Q30 bases: 0(-nan%)
+
+Read2 aftering filtering:
+total reads: 0
+total bases: 0
+Q20 bases: 0(-nan%)
+Q30 bases: 0(-nan%)
+
+Filtering result:
+reads passed filter: 0
+reads failed due to low quality: 0
+reads failed due to too many N: 0
+reads failed due to too short: 0
+reads with adapter trimmed: 0
+bases trimmed due to adapters: 0
+
+Duplication rate: 0%
+
+Insert size peak (evaluated by paired-end reads): 0
+
+JSON report: fastp.json
+HTML report: noprimers.html
+
+fastp -i /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/f2aee362-f88b-4682-b781-07693c14631b/call-PrimerRemoval/shard-0/inputs/-764551660/binned_R1.fastq.gz -I /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/f2aee362-f88b-4682-b781-07693c14631b/call-PrimerRemoval/shard-0/inputs/-764551660/binned_R2.fastq.gz -o binned_forward_seqs_no_primer.fastq.gz -O binned_reverse_seqs_no_primer.fastq.gz -h noprimers.html 
+fastp v0.20.0, time used: 0 seconds

@@ -1,0 +1,7 @@
+trash/
+*/*.swp
+*.swp
+*/*.swo
+*.swo
+cromwell-executions/ *.swn */*.swn
+cromwell-workflow-logs/

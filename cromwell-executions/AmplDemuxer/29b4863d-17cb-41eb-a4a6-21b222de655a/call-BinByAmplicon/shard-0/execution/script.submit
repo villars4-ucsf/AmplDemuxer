@@ -1,0 +1,2 @@
+#!/bin/bash
+singularity exec /wynton/home/rodriguez-barraquer/villars4_ucsf/library/singularity/cutadapt-2.5.sif /bin/sh /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/29b4863d-17cb-41eb-a4a6-21b222de655a/call-BinByAmplicon/shard-0/execution/script

@@ -1,0 +1,11 @@
+#!/bin/bash
+qsub \
+-terse \
+-V \
+-b y \
+-N cromwell_d336ecaf_BinByAmplicon \
+-wd /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/d336ecaf-876a-457a-b1ca-b5b7c51cfbcd/call-BinByAmplicon/shard-1 \
+-o /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/d336ecaf-876a-457a-b1ca-b5b7c51cfbcd/call-BinByAmplicon/shard-1/execution/stdout.qsub \
+-e /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/d336ecaf-876a-457a-b1ca-b5b7c51cfbcd/call-BinByAmplicon/shard-1/execution/stderr.qsub \
+-pe smp 1 \
+singularity exec /wynton/home/rodriguez-barraquer/villars4_ucsf/library/singularity/cutadapt-2.5.sif /bin/bash /wynton/home/rodriguez-barraquer/villars4_ucsf/library/WDL/AmplDemuxer/cromwell-executions/AmplDemuxer/d336ecaf-876a-457a-b1ca-b5b7c51cfbcd/call-BinByAmplicon/shard-1/execution/script

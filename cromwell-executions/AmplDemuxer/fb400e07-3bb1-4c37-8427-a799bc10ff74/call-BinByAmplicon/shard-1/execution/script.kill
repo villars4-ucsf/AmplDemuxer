@@ -1,0 +1,13 @@
+#!/bin/bash
+kill_tree() {
+  local pid
+  local cpid
+  pid=$1
+  for cpid in $(pgrep -P "$pid"); do
+    kill_tree "$cpid"
+  done
+  echo killing "$pid"
+  kill "$pid"
+}
+
+kill_tree "12322"
