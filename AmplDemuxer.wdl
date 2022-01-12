@@ -63,6 +63,7 @@ task BinByAmplicon {
 
    runtime {
      simg: "/wynton/home/rodriguez-barraquer/villars4_ucsf/library/singularity/cutadapt-3.5.sif"
+     memory: "2GB"
    }
 
   output {
@@ -94,6 +95,7 @@ task PrimerRemoval {
 
     runtime {
      simg: "~/library/singularity/fastp-0.20.0.sif"
+     memory: "2GB"
     }
 
   output {
